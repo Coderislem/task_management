@@ -1,0 +1,22 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/comments.css' %}">
+{% endblock extra_css %}
+    
+    {% block content %}
+   
+   {% for comment in comments %}
+   <div class="comment-container"> <!-- New container for each comment -->
+       <img src="{{comment.user.image_profile.url}}" alt="img_profile" class='user-avatar'>  
+       <div>
+           <span class="comment-username">{{ comment.user.user.username }}</span> <!-- New class for username -->
+           <p class="comment-text">{{ comment.comment_text }}</p> <!-- New class for comment text -->
+           <span class="comment-timestamp">{{ comment.created_at }}</span> <!-- New class for timestamp -->
+       </div>
+   </div>
+   {% endfor %}
+    
+    {% endblock content %}
+        

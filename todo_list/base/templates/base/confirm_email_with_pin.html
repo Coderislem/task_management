@@ -1,0 +1,37 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/change-email.css' %}">
+    
+{% endblock extra_css %}
+    
+{% block content %}
+    
+   <!-- confirm_email_with_pin.html -->
+   <div class="container_change_email">
+    {% block messages %}
+{% if messages %}
+
+{% for message in messages %}
+<div class='auth-{{message.tags}}'>
+    
+    {{ message }}
+</div>
+{% endfor %}
+
+{% endif %}
+{% endblock messages %}
+<form method="POST">
+    {% csrf_token %}
+    <label for="pin">Enter the PIN sent to your new email:</label>
+    <input type="text" name="pin" placeholder='******' id="pin" required maxlength='6' >
+    <button type="submit">Confirm</button>
+</form>
+<br>
+
+
+    
+
+</div>
+{% endblock content %}
+    

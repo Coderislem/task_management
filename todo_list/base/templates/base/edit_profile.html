@@ -1,0 +1,98 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/edit_profile.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+{% endblock extra_css %}
+
+{% block content %}
+<div class="edit-profile-container">
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="profile-image-selector">
+            
+            {% if image_profile %}
+            <img id="avatar-preview" src="{{ image_profile.url }}" alt="Profile Avatar">
+             {% else %} 
+             <img id="avatar-preview" src="{% static 'logo/avatar.jpg' %}" alt="Profile Avatar">  
+             {% endif %}
+            <label for="id_image_profile" class="camera-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                    <path fill="#000000" d="M149.1 64.8L138.7 96 64 96C28.7 96 0 124.7 0 160L0 416c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-256c0-35.3-28.7-64-64-64l-74.7 0L362.9 64.8C356.4 45.2 338.1 32 317.4 32L194.6 32c-20.7 0-39 13.2-45.5 32.8zM256 192a96 96 0 1 1 0 192 96 96 0 1 1 0-192z"/>
+                </svg>
+            </label>
+            <div class='label_hidden'>
+                {{ custom_user_form.image_profile }}
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="{{ user_form.username.id_for_label }}">Username:</label>
+                {{ user_form.username }}
+                {% if user_form.username.errors %}
+                    <div class="error">{{ user_form.username.errors }}</div>
+                {% endif %}
+            </div>
+            <div class="form-group">
+                <label for="{{ user_form.email.id_for_label }}">Email:</label>
+                {{ user_form.email }}
+                {% if user_form.email.errors %}
+                    <div class="error">{{ user_form.email.errors }}</div>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- إضافة زر تغيير البريد الإلكتروني -->
+        
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="{{ custom_user_form.phone_number.id_for_label }}">Phone number:</label>
+                {{ custom_user_form.phone_number }}
+                {% if custom_user_form.phone_number.errors %}
+                    <div class="error">{{ custom_user_form.phone_number.errors }}</div>
+                {% endif %}
+            </div>
+            <div class="form-group">
+                <label for="{{ custom_user_form.location.id_for_label }}">Location:</label>
+                {{ custom_user_form.location }}
+                {% if custom_user_form.location.errors %}
+                    <div class="error">{{ custom_user_form.location.errors }}</div>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="form-group full-width">
+            <label for="{{ custom_user_form.Boi.id_for_label }}">Bio:</label>
+            {{ custom_user_form.Boi }}
+        </div>
+
+        <!-- إضافة زر إعادة تعيين كلمة المرور -->
+        
+
+        <!-- زر حفظ التغييرات -->
+        <div class="btn-wrapper">
+            <button type="submit" class="btn-primary">
+                <i class="fas fa-save"></i> Save Changes
+            </button>
+            <a href=" {% url 'edit_rest_email' %} ">
+            <button type="button" class="btn-secondary" id="change-email-btn">
+                <i class="fas fa-envelope"></i> Change Email
+            </button>
+           </a>
+           <a href=" {% url 'edit_rest_pass' %} "> <button type="button"  class="btn-secondary"  id="reset-password-btn">
+                <i class="fas fa-key"></i> Reset Password
+            </button>
+        </a>
+        </div>
+    </form>
+</div>
+{% endblock content %}
+
+{% block extra_js %}
+    <script src="{% static 'js/image_profile_target.js' %}"></script>
+
+
+{% endblock extra_js %}

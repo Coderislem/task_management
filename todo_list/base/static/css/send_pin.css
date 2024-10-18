@@ -1,0 +1,80 @@
+/* send_pin.css */
+body {
+    background-color: #f0f2f5;
+    font-family: Arial, sans-serif;
+}
+
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.auth-form-wrapper {
+    background-color: #ffffff; /* White background for the form */
+    padding: 40px; /* Increased padding for a more spacious feel */
+    border-radius: 10px; /* Slightly rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Softer shadow */
+    max-width: 400px; /* Max width for the form */
+    width: 100%; /* Full width within the container */
+    text-align: center; /* Center text alignment */
+}
+
+h2 {
+    margin-bottom: 20px;
+    font-size: 26px; /* Increased font size */
+    color: #333;
+}
+
+p {
+    margin-bottom: 30px; /* Increased margin for better spacing */
+    font-size: 16px; /* Font size for the paragraph */
+    color: #555; /* Slightly darker color for better readability */
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+button {
+    background-color: #1877f2;
+    color: white;
+    border: none;
+    padding: 14px 20px; /* Increased padding for a larger button */
+    border-radius: 5px; /* Slightly rounded corners */
+    cursor: pointer;
+    width: 100%; /* Full width button */
+    font-size: 18px; /* Increased font size */
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #166fe5;
+}
+
+.alert {
+    background-color: #ffebee;
+    color: #c62828;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    font-size: 14px;
+}

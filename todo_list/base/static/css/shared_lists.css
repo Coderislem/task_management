@@ -1,0 +1,103 @@
+/* Container Background */
+.container_shared {
+    background-color: #f3f6f9; /* Light grayish-blue for a clean look */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Soft shadow for depth */
+}
+
+/* Shared Lists Container */
+.shared-lists-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Increased gap for more breathing room */
+    align-items: center;
+}
+
+/* Card Styling */
+.shared-list-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    padding: 25px; /* Slightly increased padding */
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    min-height: 200px;
+    width: 600px;
+}
+
+.shared-list-card:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px); /* Lift effect on hover */
+}
+
+/* Header with User Info */
+.shared-list-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.user-avatar {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    margin-right: 15px;
+    object-fit: cover;
+    border: 2px solid #e0e4e7; /* Border for better contrast */
+}
+
+.user-info h5 {
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.user-info small {
+    color: #999; /* Light gray for subtle details */
+}
+
+/* Content Area */
+.list-name {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #007acc; /* A calm blue for list names */
+}
+
+.list-description {
+    color: #555;
+    margin: 8px 0;
+}
+
+/* Footer with Counts */
+.shared-list-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    border-top: 1px solid #e0e4e7;
+    padding-top: 15px;
+}
+
+.task-count, .comment-count {
+    font-weight: 500;
+    color: #0069c0; /* Accent color for task and comment count */
+}
+
+.comment-icon {
+    color: #28a745; /* Maintain green for the comment icon */
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.comment-icon:hover {
+    color: #1e7a34; /* Darker green on hover */
+}
+
+/* No Lists Styling */
+.no-lists {
+    text-align: center;
+    padding: 50px;
+    background-color: #e9eff6; /* Very light blue background */
+    border-radius: 8px;
+    font-size: 1.1rem;
+    color: #6c757d;
+}

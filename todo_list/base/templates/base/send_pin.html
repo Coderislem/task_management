@@ -1,0 +1,25 @@
+{% extends 'base/home.html' %}
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/send_pin.css' %}">
+
+{% block extra_css %}
+
+<link rel="stylesheet" href="{% static 'css/send_pin.css' %}">
+{% endblock %}
+{% block content %}
+<div class="auth-container">
+    <div class="auth-form-wrapper">
+        <h2>Confirm Your Registration</h2>
+
+        <p>If you are sure this is your email: {{ email }}, then click send to receive your confirmation pin.</p>
+
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <button type="submit">Send Pin</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

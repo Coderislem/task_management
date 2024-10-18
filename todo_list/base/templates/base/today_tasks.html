@@ -1,0 +1,43 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/today_tasks.css' %}">
+{% endblock extra_css %}
+
+{% block content %}
+<div class="today-tasks-container">
+
+    
+    {% if tasks %}
+        <ul class="today-tasks-list">
+            {% for task in tasks %}
+                <li class="today-task-item {% if task.status == 'completed' %}task-completed{% endif %}">
+                    <div class="today-task-details">
+                        <h3 class="today-task-name">{{ task.title }}</h3>
+                        <span class="today-task-list">{{ task.to_do_list.name }}</span>
+                        <span class="today-task-time">Due: {{ task.due_time }}</span>
+                    </div>
+                    {% if task.status != 'completed' %}
+                        <div class="today-task-buttons">
+                            <form class="today-task-form" action="{% url 'complete_task' task.task_id %}" method="post">
+                                {% csrf_token %}
+                                <button type="submit" class="today-task-btn today-task-btn-complete">COMPLETE</button>
+                            </form>
+                            <form class="today-task-form" action="{% url 'ignore_task' task.task_id %}" method="post">
+                                {% csrf_token %}
+                                <button type="submit" class="today-task-btn today-task-btn-ignore">IGNORE</button>
+                            </form>
+                        </div>
+                    {% else %}
+                        <span class="task-completed-status">Completed</span>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p class="today-tasks-empty">No tasks due today. Enjoy your day!</p>
+    {% endif %}
+</div>
+{% endblock content %}
+

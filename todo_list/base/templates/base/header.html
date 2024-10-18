@@ -1,0 +1,22 @@
+{% load static  %}
+{% block extra_css %}
+  
+<link rel="stylesheet" href=" {% static 'css/header_hero.css' %} ">
+{% endblock extra_css %}
+  
+
+<header class="site-header">
+  <h1 class="site-title"> {{title}} </h1>
+  <div class="user-actions">
+   <a href="" class='notification'> <i class="fa-solid fa-bell"></i> </a>
+    {% if image_profile %}
+      <a href="{% url 'profile' %}">
+        <img src="{{ image_profile.url }}" alt="image profile" class="profile-image-logo">
+      </a>
+      {% comment %} <p class='username-tag'>{{user_profile.username}} </p> {% endcomment %}
+    {% else %}
+      <a href="{% url 'profile' %}">  </a>
+    {% endif %}
+ 
+  </div>
+</header>

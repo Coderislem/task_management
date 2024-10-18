@@ -1,0 +1,38 @@
+.messages {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+.messages .alert {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.alert-success {
+    background-color: #28a745;
+}
+
+.alert-error {
+    background-color: #dc3545;
+}
+
+.alert-warning {
+    background-color: #ffc107;
+}
+
+.alert-info {
+    background-color: #17a2b8;
+}
+
+.btn-close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.2em;
+}

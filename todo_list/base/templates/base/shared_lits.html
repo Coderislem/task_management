@@ -1,0 +1,41 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/shared_lists.css' %}">
+{% endblock extra_css %}
+
+{% block content %}
+<div class="container_shared">
+
+    <div class="shared-lists-container">
+        {% for list in lists_shared %}
+        <div class="shared-list-card">
+            <div class="shared-list-header">
+                <img src="{{ list.user.image_profile.url }}" alt="User Avatar" class="user-avatar">
+                <div class="user-info">
+                    <h5 class="user-name">{{ list.user.user.username }}</h5>
+                    <small class="text-muted">{{ list.created_at|date:"F d, Y" }} - {{ list.user.location|default:"Location not specified" }}</small>
+                </div>
+            </div>
+            <div class="shared-list-content">
+                <h4 class="list-name"><a href="{% url 'check_list' list_id=list.id %}"> {{ list.name }}</a></h4>
+                <p class="list-description">{{ list.description|truncatewords:20 }}</p>
+            </div>
+            <div class="shared-list-footer">
+                <div class="stats">
+                    <span class="task-count"><i class="fas fa-tasks"></i> {{ list.tasks.count }} tasks</span>
+                    <span class="comment-count"><i class="fas fa-comments"></i> <a href="{% url 'comments' list_id=list.id %}"> {{ list.comments.count }} comments</a></span>
+                </div>
+                <a href="{% url 'add comment' list_id=list.id %}" class="comment-link"><i class="fas fa-comment comment-icon" title="Comment"></i></a>
+            </div>
+        </div>
+        {% empty %}
+        <div class="no-lists">
+            <i class="fas fa-clipboard-list fa-3x mb-3"></i>
+            <p>No shared lists available at the moment.</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}

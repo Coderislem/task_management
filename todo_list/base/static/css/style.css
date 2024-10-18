@@ -1,0 +1,81 @@
+/* Reset some default styles */  
+* {  
+    margin: 0;  
+    padding: 0;  
+    box-sizing: border-box;  
+    font-family: "Roboto", system-ui;
+  }  
+  
+  body {  
+    font-family: Arial, sans-serif;  
+    background-color: #F4F7F9;
+  }  
+  
+  .container {  
+    display: flex;  
+    height: 100vh;  
+  }  
+    
+  .main-content {  
+    flex-grow: 1;  
+    padding: 20px; 
+    background: linear-gradient(to bottom, #F0F0F0, #E0F7FA); 
+  }  
+  
+ 
+  
+  .today .task-list .task-item {  
+    background-color: #fff;  
+    border-radius: 5px;  
+    padding: 10px;  
+    margin-bottom: 10px;  
+    display: flex;  
+    justify-content: space-between;  
+    align-items: center;  
+  }  
+  
+  .today .task-list .task-item .task-details {  
+    display: flex;  
+    align-items: center;  
+  }  
+  
+  .today .task-list .task-item .task-details i {  
+    margin-right: 10px;  
+    font-size: 16px;  
+    color: #666;  
+  }  
+  
+  .today .task-list .task-item .task-meta {  
+    display: flex;  
+    align-items: center;  
+    font-size: 14px;  
+    color: #666;  
+  }  
+  
+  .today .task-list .task-item .task-meta .date {  
+    margin-right: 10px;  
+  }  
+  
+  .today .task-list .task-item .task-meta .type {  
+    margin-right: 10px;  
+  }  
+  
+  .today .task-list .task-item .task-meta .priority {  
+    padding: 5px 10px;  
+    border-radius: 20px;  
+  }  
+  
+  .today .task-list .task-item .task-meta .priority.personal {  
+    background-color: #ffeaea;  
+    color: #ff6b6b;  
+  }
+
+
+  
+ 
+
+
+  .main-content {
+    margin-left: 250px;  /* Adjust based on sidebar width */
+    background: linear-gradient(to right, #e0f7fa, #f7f7f7);
+}

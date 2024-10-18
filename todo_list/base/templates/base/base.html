@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Todo App{% endblock %}</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  {% comment %} <link rel="stylesheet" href="{% static 'css/hero.css' %}"> {% endcomment %}
+  {% comment %} <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}?v=1.0"> {% endcomment %}
+
+
+  {% block extra_css %}{% endblock %}
+</head>
+<body>
+  <div class="container">
+    {% include 'base/sidebar.html' %}
+    <div class="main-content">
+      {% include 'base/header.html' with custom_user=custom_user %}
+      {% block content %}{% endblock %}
+    </div>
+  </div>
+  {% block extra_js %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,15 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block extra_css %}
+    
+{% endblock extra_css %}
+    
+    {% block content %}
+       <form action="" method='POST'>
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type='submit'>add</button>
+       </form>
+    {% endblock content %}
+        

@@ -1,0 +1,41 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/check_shared_list.css' %}">
+{% endblock extra_css %}
+    
+
+
+{% block content %}
+    <div class="todo-task-list">
+
+        {% for task in tasks %}
+       
+            <div class="todo-task-item {% if task.status == 'completed' %}todo-completed{% elif task.status == 'expired' %}todo-expired{% endif %}">
+                <span class="todo-task-status">
+                    {% if task.status == 'completed' %}
+                        <i class="fas fa-check-circle icon-completed"></i> 
+                    {% elif task.status == 'expired' %}
+                        <i class="fas fa-times-circle icon-expired"></i>
+                    {% elif task.status == 'in_progress' %}
+                        <i class="fas fa-spinner icon-in-progress"></i> 
+                    {% else %}
+                        <i class="fas fa-circle icon-not-started"></i> 
+                    {% endif %}
+                </span>
+                <span class="todo-task-title">{{ task.title }}</span>
+                <span class="todo-task-created-at">{{ task.created_at|date:"Y-m-d" }}</span>
+                <span class="todo-task-priority"> {{ task.priorities }}</span>
+               
+            </div>
+            {% empty %}
+            <tr>
+                <td colspan="5" class="no-tasks">No tasks available for this list.</td>
+            </tr>
+        {% endfor %}
+        
+     
+    </div>
+{% endblock content %}
+    

@@ -1,0 +1,77 @@
+{% extends 'base/home.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/auth-forms.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="auth-container">
+    <div class="auth-form-wrapper">
+        <h2 class="auth-title">Step 2</h2>
+        
+        {% if user_form.errors %}
+            <div class="auth-error">
+                {% for field, errors in user_form.errors.items %}
+                    {% if forloop.first %}
+                        {{ errors.0 }}
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        <form method="POST" enctype="multipart/form-data" class="auth-form">
+            {% csrf_token %}
+             
+            <div class="profile-image-selector">
+                <img id="avatar-preview" src="{% static 'logo/avatar.jpg' %}" alt="Default Avatar">
+                <label for="id_image_profile" class="camera-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#000000" d="M149.1 64.8L138.7 96 64 96C28.7 96 0 124.7 0 160L0 416c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-256c0-35.3-28.7-64-64-64l-74.7 0L362.9 64.8C356.4 45.2 338.1 32 317.4 32L194.6 32c-20.7 0-39 13.2-45.5 32.8zM256 192a96 96 0 1 1 0 192 96 96 0 1 1 0-192z"/></svg>
+                </label>
+                {{ form.image_profile }}
+            </div>
+            <div class="form-group">
+                {{ form.phone_number.label_tag }}
+                {{ form.phone_number }}
+            </div>
+            
+            <div class="form-group">
+                {{ form.email.label_tag }}
+                {{ form.email }}
+            </div>
+            
+            <div class="form-group">
+                {{ form.location.label_tag }}
+                {{ form.location }}
+            </div>
+            
+            {% comment %} <div class="form-group">
+                {{ form.image_profile.label_tag }}
+                {{ form.image_profile }}
+            </div> {% endcomment %}
+
+            {% comment %} <div class="form-group">
+                {{ custom_user_form.image_profile.label_tag }}
+                {{ custom_user_form.image_profile }}
+            </div> {% endcomment %}
+
+            <button type="submit" class="auth-button">Sign Up</button>
+        </form>
+        
+        <p class="auth-switch">Already have an account? <a href="{% url 'login' %}">Log in</a></p>
+    </div>
+</div>
+<script>  
+    document.getElementById('id_image_profile').addEventListener('change', (event) => {  
+        var file = event.target.files[0]; // Corrected 'fiel' to 'file'  
+        var reader = new FileReader(); // Corrected 'fileReader()' to 'new FileReader()'  
+        
+        reader.onload = (e) => {  
+            var preview = e.target.result; // Corrected 'terget.resulte' to 'target.result'  
+            document.getElementById('avatar-preview').src = preview; // Assuming you want to update the avatar preview  
+        };  
+        
+        reader.readAsDataURL(file);  
+    });  
+</script>
+{% endblock content %}

@@ -1,0 +1,149 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+  <meta charset="UTF-8">  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+  <title>Upcoming Tasks</title>  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">  
+ {% load static %}
+ <link rel="stylesheet" href="{% static 'css/hero.css' %}">
+</head>  
+<body>  
+  <div class="container">  
+    <div class="sidebar">  
+      <div class="menu-icon">  
+        <i class="fas fa-bars"></i>  
+      </div>  
+      <div class="search-icon">  
+        <i class="fas fa-search"></i>  
+      </div>  
+      <div class="tasks">  
+        <div class="task-item">  
+          <i class="fas fa-calendar-alt"></i>  
+          <span>Upcoming</span>  
+          <span class="task-count">12</span>  
+        </div>  
+        <div class="task-item">  
+          <i class="fas fa-calendar-day"></i>  
+          <span>Today</span>  
+          <span class="task-count">5</span>  
+        </div>  
+        <div class="task-item">  
+          <i class="fas fa-calendar"></i>  
+          <span>Calendar</span>  
+        </div>  
+        <div class="task-item">  
+          <i class="fas fa-sticky-note"></i>  
+          <span>Sticky Wall</span>  
+        </div>  
+      </div>  
+      <div class="lists">  
+        <div class="list-item personal">  
+          <i class="fas fa-user"></i>  
+          <span>Personal</span>  
+          <span class="task-count">3</span>  
+        </div>  
+        <div class="list-item work">  
+          <i class="fas fa-briefcase"></i>  
+          <span>Work</span>  
+          <span class="task-count">6</span>  
+        </div>  
+        <div class="list-item">  
+          <i class="fas fa-list"></i>  
+          <span>List 1</span>  
+          <span class="task-count">3</span>  
+        </div>  
+        <div class="add-new-list">
+            <a href="{% url 'create_todo_list' %}">
+              <i class="fas fa-plus"></i>
+              <span>Add New List</span>
+            </a>
+          </div> 
+      </div>  
+      <div class="tags">  
+        <div class="tag-item">  
+          <i class="fas fa-tag"></i>  
+          <span>Tag 1</span>  
+        </div>  
+        <div class="tag-item">  
+          <i class="fas fa-tag"></i>  
+          <span>Tag 2</span>  
+        </div>  
+        <div class="add-new-tag">  
+          <i class="fas fa-plus"></i>  
+          <span>Add Tag</span>  
+        </div>  
+      </div>  
+      <div class="settings">  
+        <i class="fas fa-cog"></i>  
+        <span>Settings</span>  
+      </div>  
+      <div class="sign-out">  
+        <i class="fas fa-sign-out-alt"></i>  
+        <span>Sign out</span>  
+      </div>  
+    </div>  
+    <div class="main-content">  
+      <div class="header">  
+        <h1>Upcoming</h1>  
+        <span class="task-count">12</span>  
+      </div>  
+      <div class="today">  
+        <h2>Today</h2>  
+        <div class="task-list">  
+          <div class="task-item">  
+            <div class="task-details">  
+              <i class="fas fa-check-circle"></i>  
+              <span>Research content ideas</span>  
+            </div>  
+            <div class="task-meta">  
+              <span class="date">22-03-22</span>  
+              <span class="type">Subtasks</span>  
+              <span class="priority personal">Personal</span>  
+            </div>  
+          </div>  
+          <div class="task-item">  
+            <div class="task-details">  
+              <i class="fas fa-check-circle"></i>  
+              <span>Create a database of guest authors</span>  
+            </div>  
+            <div class="task-meta">  
+              <span class="date">22-03-22</span>  
+              <span class="type">Subtasks</span>  
+              <span class="priority personal">Personal</span>  
+            </div>  
+          </div>  
+          <div class="task-item">  
+            <div class="task-details">  
+              <i class="fas fa-check-circle"></i>  
+              <span>Renew driver's license</span>  
+            </div>  
+            <div class="task-meta">  
+              <span class="date">22-03-22</span>  
+              <span class="type">Subtasks</span>  
+              <span class="priority personal">Personal</span>  
+            </div>  
+          </div>  
+          <div class="task-item">  
+            <div class="task-details">  
+              <i class="fas fa-check-circle"></i>  
+              <span>Consult accountant</span>  
+            </div>  
+            <div class="task-meta">  
+              <span class="date">22-03-22</span>  
+              <span class="type">Subtasks</span>  
+              <span class="priority personal">Personal</span>  
+            </div>  
+          </div>  
+          <div class="task-item">  
+            <div class="task-details">  
+              <i class="fas fa-plus-circle"></i>  
+              <span>Add New Task</span>  
+            </div>  
+          </div>  
+        </div>  
+      </div>  
+    </div>  
+  </div>  
+</body>  
+</html>

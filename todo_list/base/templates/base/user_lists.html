@@ -1,0 +1,51 @@
+{% extends 'base/base.html' %}  
+{% load static %}  
+
+{% block extra_css %}  
+<link rel="stylesheet" href="{% static 'css/user_lists.css' %}">  
+{% endblock extra_css %}  
+
+{% block content %}   
+<div class="container_user_lists">  
+    <div class="header">  
+        <div class="search-container">  
+            <form action="">
+            <input type="text" class="search-input" name='search' placeholder="Search lists..." value='{{search_query}}'>  
+            <button class="search-btn" type='submit'>  
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">  
+                    <circle cx="11" cy="11" r="8"></circle>  
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>  
+                </svg>  
+            </button>  
+        </form>
+        </div>  
+        <a href="{% url 'create_todo_list' %}" class="btn add-list-btn">Add New</a>  
+    </div>  
+    <div class="list-container">  
+        {% for list in user_lists %}  
+            <div class="todo-list-card">  
+                <div class="list-header">  
+                    <h3>{{ list.name }}</h3>  
+                    <span class="list-status {% if list.is_private %}private{% else %}public{% endif %}">  
+                        {{ list.is_private|yesno:"Private,Public" }}  
+                    </span>  
+                </div>  
+                <p class="list-description">{{ list.description }}</p>  
+                <div class="list-actions">  
+                    <a href="{% url 'tasks_for_list' list_id=list.id %}" class="btn visit-btn">  
+                        <i class="fas fa-eye"></i> 
+                      
+                             Visit  
+                    </a>  
+                    <a href="{% url 'edit_todo_list' list.id %}" class="btn manage-btn">  
+                        <i class="fas fa-cog"></i> Manage  
+                    </a>
+                    
+                </div>
+            </div>  
+        {% empty %}  
+            <p>No lists available.</p>  
+        {% endfor %}  
+    </div>  
+</div>  
+{% endblock %}  

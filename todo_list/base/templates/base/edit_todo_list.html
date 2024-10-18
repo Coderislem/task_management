@@ -1,0 +1,39 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/change-email.css' %}">
+{% endblock extra_css %}
+
+{% block content %} 
+<div class="container_change_email">
+    <!-- استخدم عنوان URL الصحيح بناءً على ما إذا كانت القائمة موجودة أو يتم إنشاؤها -->
+    <form method="POST" action="{% if list %}{% url 'edit_todo_list' list.id %}{% else %}{% url 'create_todo_list' %}{% endif %}">
+        {% csrf_token %}
+        
+        {{ form.name.label }}
+        {{ form.name }}
+        
+        {{ form.description.label }}
+        {{ form.description }}
+        
+        <div class="checkbox-label">
+            {{ form.is_private }}
+            {{ form.is_private.label }}
+        </div>
+
+        <div class="button-container">
+            <button type="submit" class='btn btn-complete'><i class="fas fa-save"></i>Save</button>
+        </div>
+    </form>
+    
+    {% if list %}
+        <!-- إذا كانت القائمة موجودة، عرض زر حذف -->
+        <form id="delete-form" method="POST" action="{% url 'remove_list' list.id %}" class='delete-form'>
+            {% csrf_token %}
+            <button type='submit' class='btn btn-delete'><i class="fas fa-trash"></i>Delete</button>
+        </form>
+    {% endif %}
+</div>
+
+{% endblock %}

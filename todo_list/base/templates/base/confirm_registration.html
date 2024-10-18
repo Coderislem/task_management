@@ -1,0 +1,35 @@
+{% extends 'base/home.html' %}
+
+{% load static %}
+
+
+{% block extra_css %}
+
+<link rel="stylesheet" href="{% static 'css/confirm_email.css' %}">
+<link rel="stylesheet" href="{% static 'css/messages.css' %}">
+
+{% endblock %}
+
+{% block content %}
+<div class="auth-container">
+    <div class="auth-form-wrapper">
+        <h2>Confirm Your Registration</h2>
+        
+            {% if messages %}
+            {% for message in messages %}
+                <div class="auth-error">{{ message }}</div>
+            {% endfor %}
+            {% endif %}
+       
+       
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="pin">Enter your confirmation pin:</label>
+                <input type="text" name="pin" id="pin" required>
+            </div>
+            <button type="submit">Confirm</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

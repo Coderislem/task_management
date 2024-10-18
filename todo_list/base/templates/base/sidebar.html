@@ -1,0 +1,70 @@
+{% load static %}
+
+{% block extra_css %}
+  <link rel="stylesheet" href=" {% static 'css/side_bare_hero.css' %}">
+{% endblock extra_css %}
+  
+<div class="sidebar">
+  <a href=" {% url 'home' %}"> <img src="{% static 'logo/todo-removebg-preview.png' %}" alt="logo" class='logo'> </a>
+ 
+  <div class="tasks">
+    <div class="task-item">
+      <i class="fas fa-calendar-alt"></i>
+      <a>Upcoming</a>
+      <span class="task-count">{{ upcoming_count }}</span>
+    </div>
+    <div class="task-item active">
+      <i class="fas fa-calendar-day"></i>
+      <a href="{% url 'today_tasks' %}">Today</a>
+      <span class="task-count">{{ today_count }}</span>
+    </div>
+   
+    <div class="task-item">
+      <i class="fas fa-sticky-note"></i>
+      <a href='{% url 'shared_list' %}'>SharedLists</a>
+    </div>
+  </div>
+  <hr>
+  <div class="lists">
+    {% for list in user_last_lists %}
+    <div class="list-item">
+      <i class="fa {{list.icon}}"></i>
+      <a href="{% url 'tasks_for_list' list_id=list.id %}">{{ list.name }}</a>
+      <span class="task-count">{{ list.task_count }}</span>
+    </div>
+    {% endfor %}  
+    <div class="add-new-list">
+      
+        <i class="fas fa-plus"></i>
+      <a href='{% url 'create_todo_list' %}'>
+        Add List
+      </a>
+    </div>
+    <div class="more-link">  <!-- New link for more -->
+      <i class="fas fa-ellipsis-h"></i>  <!-- Icon for more -->
+      <a href="{% url 'lists_view' %}">More</a>
+    </div>
+  </div>
+  {% comment %} <div class="tags">
+    {% for tag in user_tags %}
+    <div class="tag-item">
+      <i class="fas fa-tag"></i>
+      <a>{{ tag.name }}</a>
+    </div>
+    {% endfor %}
+    <div class="add-new-tag">
+      <i class="fas fa-plus"></i>
+      <a>Add Tag</a>
+    </div>
+  </div> {% endcomment %}
+  <div class="settings">
+    <i class="fas fa-cog"></i>
+    <a>Settings</a>
+  </div>
+  <div class="sign-out">
+    <a href="{% url 'logout' %}">
+      <i class="fas fa-sign-out-alt"></i>
+      <span>Sign out</span>
+    </a>
+  </div>
+</div>

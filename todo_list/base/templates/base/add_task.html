@@ -1,0 +1,45 @@
+{% extends 'base/base.html' %}
+
+{% load static %}
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/add_task.css' %}">  <!-- Link to a custom CSS file for add task styling -->
+{% endblock extra_css %}
+    
+    {% block content %}
+   
+        <div class="add-task-container">
+            <h2>Add New Task</h2>
+            <form method="POST" action="">
+                {% csrf_token %}
+                
+                <div class="form-group">
+                    <label for="id_title">{{ form_task.title.label }}</label>
+                    <input type="text" id="id_title" name="title" class="form-control" placeholder="Enter title ..." value="{{ form_task.title.value|default:'' }}" required>
+                </div>
+
+                <div class="form-group">
+                    <label>{{ form_task.priorities.label }}</label>
+                    <div class="form-control">
+                        {% for choice in form_task.priorities.field.choices %}
+                            <label>
+                                <input type="radio" name="priorities" value="{{ choice.0 }}" {% if form_task.priorities.value == choice.0 %}checked{% endif %} required>
+                                {{ choice.1 }}
+                            </label>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="id_due_date">{{ form_task.due_date.label }}</label>
+                    <input type="date" id="id_due_date" name="due_date" class="form-control" value="{{ form_task.due_date.value|default:'' }}" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="id_due_time">{{ form_task.due_time.label }}</label>
+                    <input type="time" id="id_due_time" name="due_time" class="form-control" value="{{ form_task.due_time.value|default:'' }}" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Save</button>
+            </form>
+        </div>
+    {% endblock content %}

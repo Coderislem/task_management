@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/header.css' %}" />
+
+    {% block extra_css %}{% endblock %}
+    <title>{% block title %}Todo App{% endblock %}</title>
+  </head>
+  <body>
+    <header>
+      <a href=" {% url 'home' %}">
+        <img src="{% static 'logo/todo-removebg-preview.png' %}" alt="logo" />
+      </a>
+      <nav>
+        <ul>
+          <li>
+            <a href="{% url 'home' %}">home</a>
+          </li>
+          <li>
+            <a href="{% url 'register_step1' %}">register</a>
+          </li>
+          <li>
+            <a href="{% url 'login' %}">login</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    {% block content %}
+    <div class="container">
+      <div class="hero-content">
+        <h1>Welcome to Your Task Manager</h1>
+        <p>Organize your tasks easily and stay productive.</p>
+        <a href="#" class="cta-button">Get Started</a>
+      </div>
+    </div>
+
+    {% endblock content %} 
+  </body>
+</html>

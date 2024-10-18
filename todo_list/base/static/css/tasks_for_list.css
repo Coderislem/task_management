@@ -1,0 +1,270 @@
+.task-wrapper {
+    max-width: 1200px;
+    margin: 2rem auto;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.task-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.task-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #343a40;
+}
+
+.task-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.task-table th {
+    text-align: left;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-bottom: 2px solid #e9ecef;
+    font-weight: 600;
+    color: #495057;
+}
+
+.task-row {
+    transition: background-color 0.3s ease;
+}
+
+.task-row:hover {
+    background-color: #f8f9fa;
+}
+
+.task-row td {
+    padding: 1rem;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.task-name {
+    font-weight: 500;
+    color: #343a40;
+}
+
+.task-description {
+    color: #6c757d;
+    max-width: 300px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.task-status {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 29px;
+    display: inline-block;
+    -webkit-border-radius: 29px;
+    -moz-border-radius: 29px;
+    -ms-border-radius: 29px;
+    -o-border-radius: 29px;
+
+}
+
+.status-not_started {
+    background-color: #ffc107;
+    color: #343a40;
+}
+
+.status-in_progress {
+    background-color: #17a3b87a;
+    color: #ffffff;
+}
+
+.status-completed {
+    background-color: #17853154;
+    color: #ffffff;
+   
+}
+
+.task-due-date {
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
+.task-controls {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.btn {
+    padding: 0.375rem 0.75rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    font-size: 0.85rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn i {
+    margin-right: 0.5rem;
+}
+
+.btn-start {
+    background-color: #17a2b8;
+    color: #ffffff;
+}
+
+.btn-start:hover {
+    background-color: #138496;
+}
+
+.btn-complete {
+    background-color: #28a745;
+    color: #ffffff;
+}
+.btn-restart{
+    background-color: #00b89f;
+    color: #ffffff; 
+}
+.btn-restart:hover{
+    background-color: #018876;
+}
+.btn-complete:hover {
+    background-color: #218838;
+}
+
+.btn-delete {
+    background-color: #dc3545;
+    color: #ffffff;
+}
+
+.btn-delete:hover {
+    background-color: #c82333;
+}
+
+.add-task-btn {
+    background-color: #007bff;
+    color: #ffffff;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+}
+
+.add-task-btn:hover {
+    background-color: #0056b3;
+}
+
+.no-tasks {
+    text-align: center;
+    padding: 2rem;
+    color: #6c757d;
+    font-style: italic;
+}
+
+@media (max-width: 768px) {
+    .task-wrapper {
+        margin: 1rem;
+    }
+
+    .task-description {
+        display: none;
+    }
+
+    .task-controls {
+        flex-direction: column;
+    }
+
+    .add-task-btn {
+        width: 100%;
+        margin-top: 1rem;
+    }
+}
+
+
+.search-container {  
+    display: flex;  
+    align-items: center;  
+    background-color: white;  
+    border-radius: 5px;  
+    padding: 5px;  
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);  
+}  
+
+.search-input {  
+    border: none;  
+    padding: 10px;  
+    font-size: 16px;  
+    width: 250px;  
+    outline: none;  
+}  
+
+.search-btn {  
+    background: none;  
+    border: none;  
+    cursor: pointer;  
+    padding: 5px;  
+}  
+
+.search-btn svg {  
+    color: #34495e;  
+}  
+
+.filter_priorities {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.filter_priorities form {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.filter_priorities label {
+    font-size: 0.9rem;
+    color: #555;
+    margin-right: 0.5rem;
+}
+
+.filter_priorities select {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    font-size: 0.9rem;
+    color: #333;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+
+.filter_priorities select:hover,
+.filter_priorities select:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.filter_priorities button {
+    padding: 0.5rem 1rem;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.filter_priorities button:hover {
+    background-color: #0056b3;
+}

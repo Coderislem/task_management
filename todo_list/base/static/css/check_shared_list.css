@@ -1,0 +1,79 @@
+/* todo_list/base/static/css/check_shared_list.css */
+
+.todo-task-list {
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    font-family: Arial, sans-serif; /* Change font family */
+    font-size: 14px; /* Change font size */
+}
+
+.todo-task-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Align items vertically */
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.todo-task-item:last-child {
+    border-bottom: none;
+}
+
+.todo-task-title {
+    font-weight: bold;
+    flex: 1; /* Allow title to take available space */
+}
+
+.todo-task-created-at,
+.todo-task-priority,
+.todo-task-status {
+    margin-right: 10px; /* Add some space between items */
+}
+
+.todo-task-priority {
+   border: 1px solid #007bff;
+   padding: 5px;
+   background-color: #e7f1ff;
+   border-radius: 15px;
+   -webkit-border-radius: 15px;
+   -moz-border-radius: 15px;
+   -ms-border-radius: 15px;
+   -o-border-radius: 15px;
+   width: 69px;
+   text-align: center;
+}
+
+.icon-completed {
+    color: green;
+}
+
+.icon-expired {
+    color: red;
+}
+
+.icon-in-progress {
+    color: orange;
+}
+
+.icon-not-started {
+    color: gray;
+}
+
+.todo-completed {
+    text-decoration: line-through;
+}
+
+.todo-expired {
+    text-decoration: line-through;
+    color: red;
+}
+
+.no-tasks {
+    text-align: center;
+    padding: 2rem;
+    color: #6c757d;
+    font-style: italic;
+}
